@@ -1,0 +1,69 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.vb.biller</groupId>
+	<artifactId>biller-parent</artifactId>
+	<version>1.0</version>
+	<name>Biller Parent</name>
+	<packaging>pom</packaging>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<spring.version>4.1.4.RELEASE</spring.version>
+		<hibernate.version>4.1.9.Final</hibernate.version>
+		<java.version>1.8</java.version>
+		<tikeswing.version>1.6.01</tikeswing.version>
+		<maven.jar.plugin.version>2.6</maven.jar.plugin.version>
+		<maven.compiler.plugin.version>2.5.1</maven.compiler.plugin.version>
+		<slf4j.log4j12.version>1.6.1</slf4j.log4j12.version>
+		<postgresql.version>9.1-901-1.jdbc4</postgresql.version>
+		<spring.aop.version>4.1.4.RELEASE</spring.aop.version>
+		<spring.data.jpa.version>1.6.0.RELEASE</spring.data.jpa.version>
+		<hibernate.jpa.2.0.api.version>1.0.1.Final</hibernate.jpa.2.0.api.version>
+		<hibernate.entitymanager.version>4.1.9.Final</hibernate.entitymanager.version>
+		<hibernate.core.version>4.1.9.Final</hibernate.core.version>
+		<jboss.logging.version>3.3.0.Final</jboss.logging.version>
+		<junit.version>4.12</junit.version>
+		<itextpdf.version>5.5.8</itextpdf.version>
+		<itext.xtra.version>5.1.0</itext.xtra.version>
+		<acrobat.version>1.1</acrobat.version>
+		<pdf.renderer.version>1.0.5</pdf.renderer.version>
+		<jdatepicker.version>1.3.2</jdatepicker.version>
+		<maven.surefire.plugin.version>2.19.1</maven.surefire.plugin.version>
+
+	</properties>
+
+	<modules>
+		<module>../biller-data</module>
+		<module>../biller-gui</module>
+		<module>../biller-init</module>
+		<module>../biller-service</module>
+	</modules>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>${maven.surefire.plugin.version}</version>
+				<configuration>
+					<testFailureIgnore>true</testFailureIgnore>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven.compiler.plugin.version}</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<compilerArgument>-Xlint:all</compilerArgument>
+					<showWarnings>true</showWarnings>
+					<showDeprecation>true</showDeprecation>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

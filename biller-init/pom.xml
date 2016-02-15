@@ -1,0 +1,62 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>biller-init</artifactId>
+	
+	<properties>
+		<java.version>1.8</java.version>
+	</properties>
+
+	<parent>
+		<groupId>org.vb.biller</groupId>
+		<artifactId>biller-parent</artifactId>
+		<version>1.0</version>
+		<relativePath>../biller-parent</relativePath>
+	</parent>
+	<name>Biller Initial Data Creation</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.vb.biller</groupId>
+			<artifactId>biller-data</artifactId>
+			<version>1.0</version>
+		</dependency>
+	</dependencies>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>${maven.jar.plugin.version}</version>
+				<configuration>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+							<mainClass>
+								com.vb.biller.scanner.Scanner
+							</mainClass>
+							<classpathPrefix>../BillerApplicaiton/lib/</classpathPrefix>
+						</manifest>
+					</archive>
+					<outputDirectory>../BillerApplicaiton</outputDirectory>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-dependencies</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>../BillerApplicaiton/lib/</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
